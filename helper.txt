@@ -1,0 +1,25 @@
+//construire une bonne reponses JSON
+const pokemons = require("./mock-pokemon")
+
+// const success = (message, data) => {
+//     return {
+//       message: message,
+//       data: data
+//     }
+//   }
+   
+//   exports.success
+
+
+exports.success = (message, data) => {
+        return { message, data}
+}
+
+//pour trouver un id unique
+exports.getUniqueId = (pokemons) => {
+        const pokemonsId = pokemons.map(pokemon => pokemon.id)
+        const maxId = pokemonsId.reduce((a,b) => Math.max (a,b))
+        const UniqueId = maxId + 1
+
+        return UniqueId
+}
